@@ -7,24 +7,35 @@
 
 ## Overview
 
-This repository documents the full analytics setup built for **GoExplore**, a camping and hiking equipment supplier experiencing strong year-on-year growth. The project was completed as part of a data science bootcamp at WBS Coding School.
+This repository documents an end-to-end analytics project built for **GoExplore**, a camping and hiking equipment supplier experiencing strong year-on-year growth. It was completed as a team project during the Data Science bootcamp at WBS Coding School.
 
-GoExplore's previous data scientist left unexpectedly, leaving only a raw spreadsheet behind. Our task was to build a complete analytics infrastructure — from raw data to interactive dashboards — within two weeks.
+GoExplore's previous data scientist left unexpectedly, leaving only a raw spreadsheet behind. The task: build a complete analytics workflow — from raw data to interactive KPI dashboards — within two weeks, and present the findings to stakeholders.
+
+> **Note on artifacts:** This README documents the project, its approach, and its results. The underlying SQL, the Looker dashboard exports, the raw spreadsheet, and the stakeholder presentation are part of a collaborative bootcamp deliverable and are available on request.
+
+## Approach
+
+```
+GoExplore sales data (spreadsheet, 2015–2018)
+        ↓
+    BigQuery
+   (4 tables: daily_sales, retailers, products, methods)
+        ↓
+  SQL queries → Looker Studio dashboards → stakeholder presentation
+```
+
+1. Loaded the raw sales spreadsheet into **BigQuery** as four related tables (daily sales, retailers, products, order methods).
+2. Wrote **SQL** queries to clean, join, and aggregate the data into business KPIs.
+3. Built **Looker Studio** dashboards to visualise the KPIs and answer the stakeholders' questions.
+4. Summarised the findings in a presentation for the European Division and Retailer Connections teams.
 
 ## Business Questions Answered
 
 **1. 🌍 European Market Expansion**
-> The head of the European Division wants to expand into 4 new countries (Czech Republic, Norway, Poland, Portugal). We estimated expected market sizes by comparing these countries to similar existing GoExplore markets using revenue share, population, and GDP benchmarks.
+> The head of the European Division wanted to expand into 4 new countries (Czech Republic, Norway, Poland, Portugal). We estimated expected market sizes by comparing these countries to similar existing GoExplore markets using revenue share, population, and GDP benchmarks.
 
 **2. 🏪 Specialty vs. General Stores**
 > The head of Retailer Connections wanted to know whether specialty stores (Golf Shops, Eyewear Stores) perform differently from general stores (Sports Stores, Outdoors Shops) — measured by Average Order Value, Average Product Price, and Orders per Store.
-
-## Contents
-
-- `dashboards/` — PDF exports of the Looker KPI dashboards
-- `bigquery_data_models/` — SQL queries used to retrieve and prepare data from BigQuery
-- `raw_data/` — The original spreadsheet (GoExplore sales data 2015–2018)
-- `presentation/` — Final presentation slides shown to stakeholders
 
 ## Key KPIs & Insights
 
@@ -35,29 +46,6 @@ GoExplore's previous data scientist left unexpectedly, leaving only a raw spread
 | 🏪 Golf Shops vs General | Golf Shops: AOV €14,640 vs Sports Stores: €5,245 |
 | 📱 Order Channels | Web dominates with 124K of ~149K total orders |
 | 💸 Highest Discounts | Brazil (4.36%) — high discounts, low revenue share |
-
-## Data Sources & Flow
-
-```
-GoExplore_Data.xlsx
-        ↓
-    BigQuery
-   (4 tables: daily_sales, retailers, products, methods)
-        ↓
-  SQL Queries → Looker Studio Dashboards
-```
-
-## Dashboards
-
-The main dashboard is available as a PDF in the `dashboards/` directory:
-- [GoExplore KPI Dashboard](dashboards/GoExplore-KPI-Dashboard.pdf)
-
-## Setup & Usage
-
-1. **View Dashboards** — Open the PDF in `dashboards/`
-2. **Review SQL Queries** — See `bigquery_data_models/` for all KPI calculations
-3. **Explore Raw Data** — Find the original spreadsheet in `raw_data/`
-4. **See the Presentation** — Full stakeholder presentation in `presentation/`
 
 ## Contributors
 
